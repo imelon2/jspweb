@@ -4,7 +4,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%request.setCharacterEncoding("utf-8"); %>
+<%
+List<String> list = new ArrayList<>();
+list.add("java");
+list.add("css");
+list.add("istl");
 
+pageContext.setAttribute("list", list);
+%>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +21,9 @@
 </head>
 <body>
 <div class="container">
-출력
+list 길이 : ${fn:length(list) } <br>
+list 길이 : ${list.size() } <br>
+list[0] 문자열 길이 : ${fn:length(list[0]) }<br>
 </div>
 
 

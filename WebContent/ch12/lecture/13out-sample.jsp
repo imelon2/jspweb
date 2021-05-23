@@ -14,7 +14,19 @@
 </head>
 <body>
 <div class="container">
-출력
+<form mothod="post">
+	이름 : <input type="text" name="name">
+	<br>
+	<input type="submit">
+</form>
+</div>
+
+<div class="container mt-5">
+	<c:if test="${not empty param.name}">
+		<%-- ${param.name }님 반갑습니다. --%>
+		<c:out value="${param.name }"/> 님 반갑습니다
+	 </c:if>
+
 </div>
 
 

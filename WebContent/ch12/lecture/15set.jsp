@@ -4,7 +4,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%request.setCharacterEncoding("utf-8"); %>
+<c:set var="attr1" value="value1" />
 
+<%
+pageContext.setAttribute("attr1","value");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-출력
+
 </div>
 
 
