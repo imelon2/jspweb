@@ -9,4 +9,95 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>
+  	servlet3
+  	</servlet-name>
+  	<servlet-class>
+  	ch17.lecture.Servlet03
+  	</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>
+  	servlet3
+  	</servlet-name>
+  	<url-pattern>
+  	/servlet3
+  	</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>servlet12</servlet-name>
+  	<servlet-class>ch17.lecture.Servlet12InitParam</servlet-class>
+  	<init-param>
+  		<param-name>
+  		url
+  		</param-name>
+  		<param-value>
+  		jdbc.mysql
+  		</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>
+  		password
+  		</param-name>
+  		<param-value>
+  		wnddkdwjdqh
+  		</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>servlet12</servlet-name>
+  <url-pattern>/servlet12</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>DBCPInit2</servlet-name>
+  	<servlet-class>ch17.textbook.DBCPInit2</servlet-class>
+  
+  </servlet>
+  
+  <listener>
+  	<listener-class>ch20.AppListener01</listener-class>
+  </listener>
+  <context-param>
+  	<param-name>jdbcdriver</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+  	
+  
+  
+  
+  
+  
+  
+  </context-param>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </web-app>

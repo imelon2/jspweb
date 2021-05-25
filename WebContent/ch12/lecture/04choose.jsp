@@ -30,10 +30,10 @@
 			<c:when test="true">
 				<h1>실행 1</h1>
 			</c:when>
-			<c:when test="false">
+			<c:when test="true">
 				<h1>실행 1</h1>
 			</c:when>
-			<c:when test="false">
+			<c:when test="true">
 				<h1>실행 1</h1>
 			</c:when>
 			<c:otherwise>
