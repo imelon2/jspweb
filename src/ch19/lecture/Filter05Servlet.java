@@ -1,6 +1,9 @@
 package ch19.lecture;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +29,22 @@ public class Filter05Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		executeJDBC();
+		
+		response.getWriter().print("<h1>jdbc</h>");
+		
+	}
+	
+	private void executeJDBC() {
+		//연결
+		
+		String url ="3.36.67.156";
+		String user ="root";
+		String password ="wnddkdwjdqhcjfl1";
+		
+		Connection con = DriverManager.getConnection(url);
+		String sql ="SELECT CustomerName FROM Customers WHERE CustomerID = 1";
 	}
 
 	/**

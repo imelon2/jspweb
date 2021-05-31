@@ -37,4 +37,21 @@ SELECT * FROM Customers
 where City LIKE '%z%';
 
 SELECT * FROM Customers
-where Country LIKE '%ia%';
+where Country LIKE '%us%';
+
+-- IN
+SELECT * FROM Customers
+where City in ('Paris','London');
+
+select * from Customers
+where Country='Germany' AND City='Berlin';
+
+select * from Customers
+where City='München' or City='Berlin';
+
+select * from Customers
+where Country='Germany' OR
+ (CustomerName LIKE 's%' AND City LIKE '%ch%');
+ 
+ SELECT * FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='München');
