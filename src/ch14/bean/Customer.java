@@ -1,6 +1,11 @@
 package ch14.bean;
 
 public class Customer {
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", city=" + city + ", id=" + id + ", contactName=" + contactName
+				+ ", address=" + address + ", postalCode=" + postalCode + ", country=" + country + "]";
+	}
 	private String name;
 	private String city;
 	private Integer id;
