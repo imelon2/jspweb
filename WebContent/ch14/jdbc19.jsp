@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags/ch16/lecture" %>
 <%@ taglib prefix="tf" tagdir="/WEB-INF/tags/ch16/textbook" %>
+
 <% request.setCharacterEncoding("utf-8"); %>
 
 <!DOCTYPE html>
@@ -16,21 +17,15 @@
 </head>
 <body>
 <div class="container">
-<form action="" method="post">
-		id : <input type="text" name="id"value="${emp.id }" readonly> <br>
-		LastName : <input type="text" name="lastName" value="${emp.lastName }" > <br>
-		FirstName : <input type="text" name="firstName" value="${emp.firstName }" > <br>
-		Notes : <textarea name="notes" rows="5" > <c:out value="${emp.notes }"/> </textarea>
+	<form action="" method="post">
+		id : <input type="text" name="id" value="${employee.id }" readonly> <br>
+		Last Name : <input type="text" name="lastName" value="${employee.lastName }" > <br>
+		First Name : <input type="text" name="firstName" value="${employee.firstName }"> <br>
+		Notes : <br>
+		<textarea name="notes" rows="5" ><c:out value="${employee.notes }" /></textarea>
 		<br>
-		<input type="submit" value="삭제">
-	
+		<input type="submit" value="삭제" >
 	</form>
 </div>
 </body>
 </html>
-
-
-
-
-
-

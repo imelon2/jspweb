@@ -1,6 +1,7 @@
-package ch14;
+package sample2.controller.member;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ch14.bean.Customer;
-import ch14.dao.CustomersDAO;
-
+import sample2.bean.Member;
+import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class JDBC18Servlet
+ * Servlet implementation class Sample2ListServlet
  */
-@WebServlet("/JDBC18Servlet")
-public class JDBC18Servlet extends HttpServlet {
+@WebServlet("/sample2/member/list")
+public class Sample2ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JDBC18Servlet() {
+    public Sample2ListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,28 +31,26 @@ public class JDBC18Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		MemberDao dao = new MemberDao();
 		
-		CustomersDAO customerDao = new CustomersDAO();
+		// db에서 회원 list 얻어서
+		List<Member> list = dao.list();
 		
-		Customer customer = customerDao.getCustomer(Integer.parseInt("id"));
-		request.setAttribute("customer", customer);
+		// request attribute에 붙여서
+		request.setAttribute("members", list);
 		
-		String path = "/ch14/jdbc18.jsp";
+		// forward
+		String path = "/WEB-INF/sample2/member/list.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 		
-		
+	
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		CustomersDAO customersDAO = new CustomersDAO();
-		
-		customersDAO.deleteCustomer(Integer.parseInt(id));
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

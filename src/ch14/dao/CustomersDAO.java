@@ -23,7 +23,7 @@ public class CustomersDAO {
 				+ "   FROM Customers "
 				+ "   WHERE CustomerID = ?";
 
-		String url = "jdbc:mysql://13.125.118.27/test"; // 본인 ip
+		String url = "jdbc:mysql://3.36.67.156/test"; // 본인 ip
 		String user = "root";
 		String password = "wnddkdwjdqhcjfl1";
 
@@ -102,7 +102,7 @@ public class CustomersDAO {
 				+ "        Country = ? "
 				+ "    WHERE CustomerID = ? ";
 		
-		String url = "jdbc:mysql://13.125.118.27/test"; // 본인 ip
+		String url = "jdbc:mysql://3.36.67.156/test"; // 본인 ip
 		String user = "root";
 		String password = "wnddkdwjdqhcjfl1";
 
@@ -164,7 +164,7 @@ public class CustomersDAO {
 	public void deleteCustomer(int id) {
 		String sql = "DELETE FROM Customers WHERE CustomerID = ?";
 		
-		String url = "jdbc:mysql://13.125.118.27/test"; // 본인 ip
+		String url = "jdbc:mysql://3.36.67.156/test"; // 본인 ip
 		String user = "root";
 		String password = "wnddkdwjdqhcjfl1";
 
@@ -218,6 +218,8 @@ public class CustomersDAO {
 		
 	}
 }
+
+
 
 
 

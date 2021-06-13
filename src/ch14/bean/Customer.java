@@ -1,19 +1,21 @@
 package ch14.bean;
 
 public class Customer {
-	@Override
-	public String toString() {
-		return "Customer [name=" + name + ", city=" + city + ", id=" + id + ", contactName=" + contactName
-				+ ", address=" + address + ", postalCode=" + postalCode + ", country=" + country + "]";
-	}
+	private int id;
 	private String name;
 	private String city;
-	private Integer id;
 	private String contactName;
 	private String address;
 	private String postalCode;
 	private String country;
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", city=" + city + ", contactName=" + contactName
+				+ ", address=" + address + ", postalCode=" + postalCode + ", country=" + country + "]";
+	}
 	public String getContactName() {
 		return contactName;
 	}
@@ -38,12 +40,13 @@ public class Customer {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getName() {
 		return name;
 	}
@@ -59,3 +62,4 @@ public class Customer {
 	
 	
 }
+

@@ -11,10 +11,14 @@ import ch14.bean.Employee;
 public class EmployeesDAO {
 	public Employee getEmployee(int id) {
 
-		Employee emp = null;
-
-		String sql = "SELECT EmployeeID," + " LastName," + " FirstName," + " Notes" + " FROM Employees"
-				+ " WHERE EmployeeID = ?";
+		Employee employee = null; // 리턴할 객체
+		
+		String sql = "SELECT EmployeeID,"
+				+ "          LastName,"
+				+ "          FirstName, "
+				+ "          Notes "
+				+ "   FROM Employees "
+				+ "   WHERE EmployeeID = ?";
 
 		String url = "jdbc:mysql://3.36.67.156/test"; // 본인 ip
 		String user = "root";
@@ -23,7 +27,6 @@ public class EmployeesDAO {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-
 		try {
 			// 클래스 로딩
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -33,7 +36,7 @@ public class EmployeesDAO {
 
 			// preparedStatement 생성
 			stmt = con.prepareStatement(sql);
-
+			
 			// ? (파라미터)에 값 할당
 			stmt.setInt(1, id);
 
@@ -41,13 +44,14 @@ public class EmployeesDAO {
 			rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				emp = new Employee();
-				emp.setId(id);
-				emp.setLastName(rs.getString(2));
-				emp.setFirstName(rs.getString(3));
-				emp.setNotes(rs.getString(4));
+				employee = new Employee();
+				employee.setId(id);
+				employee.setLastName(rs.getString(2));
+				employee.setFirstName(rs.getString(3));
+				employee.setNotes(rs.getString(4));
+				
 			}
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -60,7 +64,6 @@ public class EmployeesDAO {
 					e.printStackTrace();
 				}
 			}
-
 			if (stmt != null) {
 				try {
 					stmt.close();
@@ -79,18 +82,18 @@ public class EmployeesDAO {
 				}
 			}
 		}
-		return emp;
+
+		return employee;
 	}
-	//업데이트
-	public void updateEmployee(Employee emp) {
-
-		String sql = " UPDATE Employees" 
-				+ " SET" 
-				+ " FirstName = ?," 
-				+ " LastName = ?," 
-				+ " Notes = ?"
-				+ " WHERE EmployeeID = ?";
-
+	
+	public void updateEmployee(Employee employee) {
+		
+		String sql = " UPDATE Employees "
+				+ "    SET LastName = ?, "
+				+ "        FirstName = ?,"
+				+ "        Notes = ? "
+				+ "    WHERE EmployeeID = ? ";
+		
 		String url = "jdbc:mysql://3.36.67.156/test"; // 본인 ip
 		String user = "root";
 		String password = "wnddkdwjdqhcjfl1";
@@ -107,12 +110,13 @@ public class EmployeesDAO {
 
 			// preparedStatement 생성
 			stmt = con.prepareStatement(sql);
-
+			
 			// ? (파라미터)에 값 할당
-			stmt.setString(1, emp.getFirstName());
-			stmt.setString(2, emp.getLastName());
-			stmt.setString(3, emp.getNotes());
-			stmt.setInt(4, emp.getId());
+			stmt.setString(1, employee.getLastName());
+			stmt.setString(2, employee.getFirstName());
+			stmt.setString(3, employee.getNotes());
+			stmt.setInt(4, employee.getId());
+
 			// 쿼리 실행, 결과(ResultSet) 리턴
 			int cnt = stmt.executeUpdate();
 
@@ -121,7 +125,7 @@ public class EmployeesDAO {
 			} else {
 				System.out.println("수정 실패");
 			}
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -145,10 +149,10 @@ public class EmployeesDAO {
 			}
 		}
 	}
-	//삭제
+	
 	public void deleteEmployee(int id) {
 		String sql = "DELETE FROM Employees WHERE EmployeeID = ?";
-
+		
 		String url = "jdbc:mysql://3.36.67.156/test"; // 본인 ip
 		String user = "root";
 		String password = "wnddkdwjdqhcjfl1";
@@ -165,7 +169,7 @@ public class EmployeesDAO {
 
 			// preparedStatement 생성
 			stmt = con.prepareStatement(sql);
-
+			
 			// ? (파라미터)에 값 할당
 			stmt.setInt(1, id);
 
@@ -177,7 +181,7 @@ public class EmployeesDAO {
 			} else {
 				System.out.println("삭제 실패");
 			}
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -200,6 +204,6 @@ public class EmployeesDAO {
 				}
 			}
 		}
-
+		
 	}
 }

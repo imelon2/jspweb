@@ -1,0 +1,30 @@
+SELECT * FROM Customers
+WHERE City LIKE 'S%'; -- 대소문자 구분 안함
+
+
+
+
+CREATE TABLE MyTable16
+(
+	id INT,
+    title VARCHAR(255),
+    body VARCHAR(255)
+);
+
+ALTER TABLE MyTable16
+ADD inserted TIMESTAMP;
+
+DESC MyTable16;
+
+ALTER TABLE MyTable16
+DROP COLUMN inserted;
+
+ALTER TABLE MyTable16
+MODIFY COLUMN body VARCHAR(1023);
+
+ALTER TABLE MyTable16
+MODIFY title VARCHAR(255) NOT NULL;
+
+UPDATE MyTable16
+SET body = ''
+WHERE body IS NULL;

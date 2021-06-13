@@ -2,16 +2,15 @@ package ch14.bean;
 
 public class Employee {
 	private int id;
-	private String firstName;
 	private String lastName;
+	private String firstName;
 	private String notes;
-	private Integer num;
 	
-	public String getNotes() {
-		return notes;
-	}
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+	public String getNotes() {
+		return notes;
 	}
 	public int getId() {
 		return id;
@@ -19,12 +18,11 @@ public class Employee {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public Integer getNum() {
-		return num;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setNum(Integer num) {
-		this.num = num;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -32,11 +30,6 @@ public class Employee {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	
 	
 }
